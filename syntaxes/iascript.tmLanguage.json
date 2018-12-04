@@ -1,0 +1,80 @@
+{
+	"$schema": "https://www.github.com/InvenireAude/iasscript/syntaxes/iascript.tmLanguage.json",
+	"name": "IAS Script",
+	"patterns": [
+		{
+			"name": "keyword.control.iascript",
+			"match": "\\b(PROGRAM|IMPORT|BEGIN|END|CALL|FOR|TO|STEP|WHILE|DO|WITH|SORT|USING|MERGE|INDEX|AS|OF|ARRAY|RETURNS|VAR|IF|THEN|ELSE|NEW|COPYOF|DETACH|SIZEOF|CREATE|DELETE|TYPE|TYPENS|ISSET|ISNULL|ISTYPE|ISINSTANCE|STRLEN|EXTERNAL|RETURN|TRY|CATCH|THROW|DEFINE|EXTENSION|ALIAS)\\b"
+		},
+		{
+			"match": "\\b(result)\\b",
+			"name": "variable.iascript"
+		},
+		{
+			"match": "\\b(AND|OR|NOT)\\b",
+			"name": "keyword.control.iascript"
+		},
+		{
+			"match": "\\b(Boolean|String|Integer|Float|AnyType|Raw)\\b",
+			"name": "storage.type.cs.iascript"
+		},
+		{
+			"match": "\\b([a-zA-Z][a-zA-Z0-9]*)[ ]*:[ ]*(\".*\")",
+			"captures": {
+				"1": {
+					"name": "storage.type.cs.iascript"
+				},
+				"2": {
+					"name": "storage.modifier"
+				}
+			},
+			"name": "storage.support.type.iascript"
+		},
+		{
+			"match": "\\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)(L|l|UL|ul|u|U|F|f|ll|LL|ull|ULL)?\\b",
+			"name": "constant.numeric.iascript"
+		},
+		{
+			"match": "\\$[0-9a-fA-F]{1,16}\\b",
+			"name": "constant.numeric.iascript"
+		},
+		{
+			"match": "\\b(TRUE|FALSE|NULL)\\b",
+			"name": "constant.language.iascript"
+		},
+		{
+			"begin": "\"",
+			"end": "\"",
+			"name": "string.quoted.other",
+			"patterns": [
+				{
+					"match": "\\\\.",
+					"name": "constant.character.escape.iascript"
+				}
+			]
+		},
+		{
+			"match": "\\b[a-zA-Z][a-zA-Z0-9]*(::[a-zA-Z][a-zA-Z0-9]*)+\\b",
+			"name": "support.function"
+		},
+		{
+			"match": "\\b([a-zA-Z][a-zA-Z0-9]*\\.)+\\b",
+			"name": "variable.name"
+		},
+		{
+			"match": "test",
+			"name": "storage.modifier"
+		},
+		{
+			"begin": "\/\\*",
+			"end": "\\*\/",
+			"name": "comment.block.iascript.one"
+		},
+		{
+			"begin": "\/\/",
+			"end": "\\n",
+			"name": "comment.line.double-slash.iascript.one"
+		}
+	],
+	"scopeName": "source.ias"
+}

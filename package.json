@@ -1,0 +1,26 @@
+{
+    "name": "iascript",
+    "displayName": "IAScript",
+    "description": "IAS Script Syntax Highlight",
+    "version": "0.0.1",
+    "publisher": "InvenireAudeAdmin",
+    "engines": {
+        "vscode": "^1.28.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "iascript",
+            "aliases": ["IAS Script", "iascript"],
+            "extensions": [".y",".ias"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "iascript",
+            "scopeName": "source.ias",
+            "path": "./syntaxes/iascript.tmLanguage.json"
+        }]
+    }
+}
